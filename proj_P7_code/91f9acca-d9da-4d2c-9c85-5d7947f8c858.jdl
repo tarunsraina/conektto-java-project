@@ -1,0 +1,31 @@
+application {
+  config {
+    baseName P7
+    packageName com.ezapi.api
+    enableTranslation false
+    languages []
+	applicationType microservice
+	authenticationType jwt
+	databaseType sql
+	prodDatabaseType mssql
+	devDatabaseType mssql
+	skipClient true
+	testFrameworks []
+	serviceDiscoveryType no
+	serverPort 8081
+	reactive false
+	buildTool maven
+  }  
+  entities *
+}
+
+entity TblClmClaimsMaster(tbl_clm_claims_master){
+	CmDateReceived ZonedDateTime,
+	CmClaimStatus String,
+	CmClaimNumber String
+}
+
+
+service all with serviceImpl
+
+dto * with mapstruct
